@@ -22,6 +22,8 @@ func main() {
 	testOOP4(bas)
 	testOOP4(der)
 
+	definedMapSpace(3)
+
 	a, b := retVarDefinedNull(2)
 	fmt.Println(a == nil, b == nil)
 
@@ -37,4 +39,5 @@ func main() {
 	time.Sleep(1 * time.Second)
 	wg.Wait()
 	fmt.Println("all done!")
+
 }
