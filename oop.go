@@ -14,19 +14,19 @@ type base struct {
 	s string
 }
 
-func (b *base) M1 (val int64) {
-	fmt.Println("baseM1 ", val - 10086, b.f, b.s)
+func (b *base) M1(val int64) {
+	fmt.Println("baseM1 ", val-10086, b.f, b.s)
 }
 
-func (b *base) M2 (val int64) {
-	fmt.Println("baseM2 ", val + 10086, b.f, b.s)
+func (b *base) M2(val int64) {
+	fmt.Println("baseM2 ", val+10086, b.f, b.s)
 }
 
-func (b *base) bark () {
+func (b *base) bark() {
 	fmt.Println("bark ", b.f, b.s)
 }
 
-func (b *base) print () {
+func (b *base) print() {
 	fmt.Println("print ", b.f, b.s)
 }
 
@@ -35,38 +35,38 @@ type derived struct {
 	*base
 }
 
-func (d *derived) M1 (val int64) {
-	fmt.Println("derivedM1 ", val - 10086, d.int64, d.f, d.s)
+func (d *derived) M1(val int64) {
+	fmt.Println("derivedM1 ", val-10086, d.int64, d.f, d.s)
 }
 
-func (d *derived) M2 (val int64) {
-	fmt.Println("derivedM2 ", val + 10086, d.int64, d.f, d.s)
+func (d *derived) M2(val int64) {
+	fmt.Println("derivedM2 ", val+10086, d.int64, d.f, d.s)
 }
 
-func (d *derived) bark () {
+func (d *derived) bark() {
 	fmt.Println("bark ", d.int64, d.f, d.s)
 }
 
-func (d *derived) print () {
+func (d *derived) print() {
 	fmt.Println("print ", d.int64, d.f, d.s)
 }
 
-func testOOP1 (in testInterface) {
+func testOOP1(in testInterface) {
 	in.bark()
 	in.print()
 }
 
-func testOOP2 (bas *base) {
+func testOOP2(bas *base) {
 	bas.M1(55)
 	bas.M2(55)
 }
 
-func testOOP3 (der *derived) {
+func testOOP3(der *derived) {
 	der.M1(5)
 	der.M2(5)
 }
 
-func testOOP4 (val interface{}) {
+func testOOP4(val interface{}) {
 	switch v := val.(type) {
 	case *derived:
 		v.M1(5)
