@@ -25,18 +25,40 @@ func definedMapSpace(new int) {
 	fmt.Println(m)
 }
 
-func mapJson() {
+func mapJson() { // key是interface类型的map是不能marshal和unmarshal的
 	m := make(map[string][]int)
-	m2 := make(map[string][]int)
+	m2 := make(map[interface{}]interface{})
+	m3 := make(map[interface{}]int)
+	m4 := make(map[string]interface{})
 	m["123"] = []int{1, 4}
 	m["21"] = []int{2, 4}
 	m["1234"] = []int{566, 666}
+
 	b, err := json.Marshal(m)
 	temp := string(b)
-	fmt.Println(temp, err)
+	fmt.Println(temp, "err: ", err)
 
 	err = json.Unmarshal([]byte(temp), &m2)
-	fmt.Println(m2)
+	fmt.Println(m2, err) //报错
+
+	err = json.Unmarshal([]byte(temp), &m3)
+	fmt.Println(m3, err) //报错
+
+	err = json.Unmarshal([]byte(temp), &m4)
+	fmt.Println(m4, err)
+
+	b, err = json.Marshal(m2) // 报错
+	temp = string(b)
+	fmt.Println(temp, "err: ", err)
+
+	b, err = json.Marshal(m3) // 报错
+	temp = string(b)
+	fmt.Println(temp, "err: ", err)
+
+	b, err = json.Marshal(m4)
+	temp = string(b)
+	fmt.Println(temp, "err: ", err)
+
 }
 
 func mapDelete() { //遍历删除是安全的

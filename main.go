@@ -41,7 +41,7 @@ func main() {
 	//wg.Wait()
 	//fmt.Println("all done!")
 	//testTimeFormat()
-	//testCut()
-	//mapJson()
-	mapDelete()
+	// testCut()
+	mapJson()
+	//mapDelete()
 }
