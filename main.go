@@ -1,5 +1,7 @@
 package main
 
+import "fmt"
+
 func main() {
 	//bas := &base{
 	//	f: 4.2,
@@ -44,4 +46,8 @@ func main() {
 	// testCut()
 	mapJson()
 	//mapDelete()
+	t := fibonacci()
+	for i := 0; i < 10; i++ {
+		fmt.Println(t())
+	}
 }
