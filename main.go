@@ -1,7 +1,5 @@
 package main
 
-import "fmt"
-
 func main() {
 	//bas := &base{
 	//	f: 4.2,
@@ -44,10 +42,11 @@ func main() {
 	//fmt.Println("all done!")
 	//testTimeFormat()
 	// testCut()
-	mapJson()
+	//mapJson()
 	//mapDelete()
-	t := fibonacci()
-	for i := 0; i < 10; i++ {
-		fmt.Println(t())
-	}
+	// t := fibonacci()
+	//for i := 0; i < 10; i++ {
+	//	fmt.Println(t())
+	//}
+	sliceAd()
 }
