@@ -49,4 +49,6 @@ func main() {
 	//	fmt.Println(t())
 	//}
 	//sliceAd()
+	//fmt.Println(1 << 2)
+	sliceStruct()
 }

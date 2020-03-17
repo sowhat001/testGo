@@ -2,6 +2,12 @@ package main
 
 import "fmt"
 
+type t1 struct {
+	a int
+	b float32
+	c string
+}
+
 func testCut() { //error
 	a := []int{1, 2, 3, 4, 5, 6, 7, 8, 9, 0}
 	b := a[3:7:len(a)]
@@ -48,4 +54,38 @@ func sliceAd() {
 	fmt.Println("s1 is:", s1)
 	fmt.Println("s3 is:", s3)
 	fmt.Println("s4 is:", s4)
+}
+
+func sliceStruct() { //因为range得到的value是值的copy，对value取地址是不行的
+	var src []t1
+	src = append(src, t1{
+		a: 2,
+		b: 3.5,
+		c: "123123123",
+	})
+	src = append(src, t1{
+		a: 3,
+		b: 4.5,
+		c: "321321321",
+	})
+	cp := make([]*t1, 0, len(src))
+	for i := 0; i < len(src); i++ { //正常
+		cp = append(cp, &src[i])
+		fmt.Printf("%p\n", &src[i])
+		fmt.Println(cp)
+		fmt.Println()
+	}
+
+	//for _, v := range src {  // 会全部都是最后一个v
+	//	cp = append(cp, &v)
+	//	fmt.Printf("%p\n", &v)
+	//	fmt.Println(cp)
+	//	fmt.Println()
+	//}
+	for _, v := range cp {
+		fmt.Println(v.a)
+		fmt.Println(v.b)
+		fmt.Println(v.c)
+		fmt.Println()
+	}
 }
