@@ -50,5 +50,6 @@ func main() {
 	//}
 	//sliceAd()
 	//fmt.Println(1 << 2)
-	sliceStruct()
+	//sliceStruct()
+	testRandInt(270)
 }
