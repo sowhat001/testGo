@@ -22,7 +22,7 @@ type Employee struct {
 }
 
 //初始化
-func init() {
+func initES() {
 	errorlog := log.New(os.Stdout, "APP", log.LstdFlags)
 	var err error
 	client, err = elastic.NewClient(elastic.SetErrorLog(errorlog), elastic.SetURL(host))
