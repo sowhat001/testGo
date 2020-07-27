@@ -51,5 +51,11 @@ func main() {
 	//sliceAd()
 	//fmt.Println(1 << 2)
 	//sliceStruct()
-	testRandInt(270)
+	// testRandInt(270)
+	createES()
+	deleteES()
+	updateES()
+	getsES()
+	queryES()
+	listES(1, 1)
 }
