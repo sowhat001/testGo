@@ -3,14 +3,16 @@ package main
 import (
 	"encoding/json"
 	"fmt"
+	"math/rand"
+	"sort"
 )
 
-func retVarDefinedNull(new int) (aaa []int, match map[int]int) {
+func RetVarDefinedNil(new int) (aaa []int, match map[int]int) {
 	_ = new
 	return
 }
 
-func retVarDefined(new int) (aaa []int, match map[int]int) {
+func RetVarDefined(new int) (aaa []int, match map[int]int) {
 	aaa = append(aaa, new)
 	match = make(map[int]int)
 	match[new] = new
@@ -25,7 +27,7 @@ func definedMapSpace(new int) {
 	fmt.Println(m)
 }
 
-func mapJson() { // key是interface类型的map是不能marshal和unmarshal的
+func MapJsonConvert() {
 	m := make(map[string][]int)
 	m2 := make(map[interface{}]interface{})
 	m3 := make(map[interface{}]int)
@@ -58,10 +60,9 @@ func mapJson() { // key是interface类型的map是不能marshal和unmarshal的
 	b, err = json.Marshal(m4)
 	temp = string(b)
 	fmt.Println(temp, "err: ", err)
-
 }
 
-func mapDelete() { //遍历删除是安全的
+func MapDelete() { //遍历删除是安全的
 	x := map[int]int{}
 	for i := 0; i < 10000; i++ {
 		x[i] = i
@@ -81,4 +82,30 @@ func mapDelete() { //遍历删除是安全的
 		delete(x, k)
 	}
 	fmt.Println("删除所有的元素后,长度:", len(x))
+}
+
+func MapSort() {
+	x := map[int]int{}
+	for i := 0; i < 5; i++ {
+		x[i] = i%3 + rand.Intn(2123)/45
+	}
+	fmt.Println("初始化，map的值为", x)
+	fmt.Println("遍历如下，不一定有序")
+	for k, v := range x {
+		fmt.Printf("%d, %d\n", k, v)
+	}
+
+	fmt.Println("按key排序")
+	keys := make([]int, len(x))
+	i := 0
+	for k, _ := range x {
+		keys[i] = k
+		i++
+	}
+	sort.SliceStable(keys, func(i, j int) bool {
+		return keys[i] < keys[j]
+	})
+	for _, v := range keys {
+		fmt.Printf("%d, %d\n", v, x[v])
+	}
 }

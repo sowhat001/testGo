@@ -4,74 +4,74 @@ import (
 	"fmt"
 )
 
-type testInterface interface {
-	bark()
-	print()
+type TestInterface interface {
+	Bark()
+	Print()
 }
 
-type base struct {
-	f float64
-	s string
+type Base struct {
+	F float64
+	S string
 }
 
-func (b *base) M1(val int64) {
-	fmt.Println("baseM1 ", val-10086, b.f, b.s)
+func (b *Base) M1(val int64) {
+	fmt.Println("baseM1 ", val-10086, b.F, b.S)
 }
 
-func (b *base) M2(val int64) {
-	fmt.Println("baseM2 ", val+10086, b.f, b.s)
+func (b *Base) M2(val int64) {
+	fmt.Println("baseM2 ", val+10086, b.F, b.S)
 }
 
-func (b *base) bark() {
-	fmt.Println("bark ", b.f, b.s)
+func (b *Base) Bark() {
+	fmt.Println("Base bark ", b.F, b.S)
 }
 
-func (b *base) print() {
-	fmt.Println("print ", b.f, b.s)
+func (b *Base) Print() {
+	fmt.Println("Base print ", b.F, b.S)
 }
 
-type derived struct {
-	int64
-	*base
+type Derived struct {
+	I int64
+	*Base
 }
 
-func (d *derived) M1(val int64) {
-	fmt.Println("derivedM1 ", val-10086, d.int64, d.f, d.s)
+func (d *Derived) M1(val int64) {
+	fmt.Println("derivedM1 ", val-10086, d.I, d.F, d.S)
 }
 
-func (d *derived) M2(val int64) {
-	fmt.Println("derivedM2 ", val+10086, d.int64, d.f, d.s)
+func (d *Derived) M2(val int64) {
+	fmt.Println("derivedM2 ", val+10086, d.I, d.F, d.S)
 }
 
-func (d *derived) bark() {
-	fmt.Println("bark ", d.int64, d.f, d.s)
+func (d *Derived) Bark() {
+	fmt.Println("Derived bark ", d.I, d.F, d.S)
 }
 
-func (d *derived) print() {
-	fmt.Println("print ", d.int64, d.f, d.s)
+func (d *Derived) Print() {
+	fmt.Println("Derived print ", d.I, d.F, d.S)
 }
 
-func testOOP1(in testInterface) {
-	in.bark()
-	in.print()
+func TestOOP1(in TestInterface) {
+	in.Bark()
+	in.Print()
 }
 
-func testOOP2(bas *base) {
+func TestOOP2(bas *Base) {
 	bas.M1(55)
 	bas.M2(55)
 }
 
-func testOOP3(der *derived) {
+func TestOOP3(der *Derived) {
 	der.M1(5)
 	der.M2(5)
 }
 
-func testOOP4(val interface{}) {
+func TestOOP4(val interface{}) {
 	switch v := val.(type) {
-	case *derived:
+	case *Derived:
 		v.M1(5)
 		v.M2(5)
-	case *base:
+	case *Base:
 		v.M1(5)
 		v.M2(5)
 	default:

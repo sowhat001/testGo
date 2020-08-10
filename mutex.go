@@ -3,16 +3,16 @@ package main
 import (
 	"fmt"
 	"sync"
+	"time"
 )
 
-func testMutex() {
+func TestMutex() {
 	var l *sync.Mutex
 	l = new(sync.Mutex)
 	l.Lock()
 	go func() {
-		l.Lock()
 		l.Unlock()
 		fmt.Println("unlock")
 	}()
-	fmt.Println("1")
+	time.Sleep(1000)
 }

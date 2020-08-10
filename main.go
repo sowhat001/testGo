@@ -1,36 +1,47 @@
 package main
 
 func main() {
-	//bas := &base{
-	//	f: 4.2,
-	//	s: "123",
-	//}
-	//der := &derived{
-	//	int64: 64,
-	//	base:  bas,
-	//}
-	//t := test{
-	//	a: 2,
-	//}
+	/* TestStruct */
 	//testStruct()
-	//testOOP1(bas)
-	//// testOOP2(der) //cannot use der (type *derived) as type *base in argument to testOOP2
-	//testOOP3(der)
-	//testOOP4(bas)
-	//testOOP4(der)
-	//noPointer(t)
-	//fmt.Println(t)
-	//pointer(&t)
-	//fmt.Println(t)
-	//
-	//definedMapSpace(3)
-	//
-	//a, b := retVarDefinedNull(2)
+
+	/* TestPointer */
+	//a := A{
+	//	int64: 2,
+	//}
+	//NoPointer(a)
+	//fmt.Println(a)
+	//Pointer(&a)
+	//fmt.Println(a)
+
+	/* TestOOP */
+	//bas := &Base{
+	//	F: 4.2,
+	//	S: "123",
+	//}
+	//der := &Derived{
+	//	I:    64,
+	//	Base: bas,
+	//}
+	//TestOOP1(bas)
+	//TestOOP1(der)
+	//TestOOP2(bas)
+	//// TestOOP2(der) // type no match
+	//// TestOOP3(bas) // type no match
+	//TestOOP3(der)
+	//TestOOP4(bas)
+	//TestOOP4(der)
+
+	/* TestMap */
+	//a, b := RetVarDefinedNil(2)
 	//fmt.Println(a == nil, b == nil)
-	//
-	//a, b = retVarDefined(2)
+	//a, b = RetVarDefined(2)
 	//fmt.Println(a, b) //slice不用make, map要make
-	//
+	//definedMapSpace(3) //map会自动扩展容量
+	//MapJsonConvert() // key是interface类型的map是不能marshal和unmarshal的
+	//MapDelete()
+	//MapSort()
+
+	/* TestWaitGroup */
 	//var wg sync.WaitGroup
 	//workerCount := 2
 	//for i := 0; i < workerCount; i++ {
@@ -40,23 +51,32 @@ func main() {
 	//time.Sleep(1 * time.Second)
 	//wg.Wait()
 	//fmt.Println("all done!")
-	//testTimeFormat()
-	// testCut()
-	//mapJson()
-	//mapDelete()
-	// t := fibonacci()
+
+	/* TestTime */
+	//TestTimeFormat()
+
+	/* TestSlice */
+	//TestCutSlice()
+	//SliceCopy()
+	//SliceStruct()
+
+	/* TestClosure */
+	//t := Fibonacci()
 	//for i := 0; i < 10; i++ {
 	//	fmt.Println(t())
 	//}
-	//sliceAd()
-	//fmt.Println(1 << 2)
-	//sliceStruct()
-	// testRandInt(270)
-	//createES()
-	//deleteES()
-	//updateES()
-	//getsES()
-	//queryES()
-	//listES(1, 1)
-	testMutex()
+
+	/* TestRand */
+	//TestRandInt(270)
+
+	/* TestString */
+	//StrToByteArrAndReverse()
+	//StrToIntAndReverse()
+	//StrToInt32AndReverse()
+	//StrToInt64AndReverse()
+	//StrToFloat32AndReverse() // 精度就6位小数
+	//StrToFloat64AndReverse()
+
+	/* TestMutex */
+	TestMutex()
 }
