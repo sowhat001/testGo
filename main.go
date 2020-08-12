@@ -78,5 +78,8 @@ func main() {
 	//StrToFloat64AndReverse()
 
 	/* TestMutex */
-	TestMutex()
+	//TestMutex()
+
+	/* TestJson */
+	TestJson()
 }
