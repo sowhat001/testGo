@@ -81,5 +81,11 @@ func main() {
 	//TestMutex()
 
 	/* TestJson */
-	TestJson()
+	//TestJson()
+
+	/* TestContext */
+	// DeadlockCtx(context.Background())
+
+	/* TestRate */
+	// TestRate()
 }
