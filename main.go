@@ -54,6 +54,7 @@ func main() {
 
 	/* TestTime */
 	//TestTimeFormat()
+	TestTimeDuration()
 
 	/* TestSlice */
 	//TestCutSlice()
@@ -88,4 +89,7 @@ func main() {
 
 	/* TestRate */
 	// TestRate()
+
+	/* TestAsync */
+	//TestAsync()
 }
