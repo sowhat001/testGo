@@ -18,3 +18,15 @@ func TestTimeDuration() { // duration可以直接转化成int相加，除非叠�
 	fmt.Println(int64(end))
 	fmt.Println(9223372036854775807)
 }
+
+func TestLoopTime() { //unixnano还是最好不当uuid
+	for i := 0; i < 20; i++ {
+		go func() {
+			a := time.Now().UnixNano()
+			fmt.Println(a)
+		}()
+	}
+	for {
+		_ = 1
+	}
+}
