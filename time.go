@@ -30,3 +30,17 @@ func TestLoopTime() { //unixnano还是最好不当uuid
 		_ = 1
 	}
 }
+
+func TestDefer() { // 睡了2s 打印出来一个100ns
+	t1 := time.Now()
+	defer fmt.Println(time.Since(t1))
+	time.Sleep(2 * time.Second)
+}
+
+func TestDeferFunc() { // 睡了2s 打印出来一个2s
+	t1 := time.Now()
+	defer func() {
+		fmt.Println(time.Since(t1))
+	}()
+	time.Sleep(2 * time.Second)
+}
