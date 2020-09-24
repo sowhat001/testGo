@@ -40,6 +40,7 @@ func main() {
 	//MapJsonConvert() // key是interface类型的map是不能marshal和unmarshal的
 	//MapDelete()
 	//MapSort()
+	// NilMap(nil)
 
 	/* TestWaitGroup */
 	//var wg sync.WaitGroup
@@ -80,6 +81,7 @@ func main() {
 	//StrToInt64AndReverse()
 	//StrToFloat32AndReverse() // 精度就6位小数
 	//StrToFloat64AndReverse()
+	Trim()
 
 	/* TestMutex */
 	//TestMutex()

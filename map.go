@@ -109,3 +109,7 @@ func MapSort() {
 		fmt.Printf("%d, %d\n", v, x[v])
 	}
 }
+
+func NilMap(m map[int64]int64) {
+	print(m[2])
+}

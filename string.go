@@ -3,6 +3,7 @@ package main
 import (
 	"fmt"
 	"strconv"
+	"strings"
 )
 
 func StrToByteArrAndReverse() {
@@ -62,4 +63,9 @@ func StrToFloat64AndReverse() {
 	if a, err := strconv.ParseFloat(s, 64); err == nil { //float64 -> string
 		fmt.Printf("%T, %v\n", a, a)
 	}
+}
+
+func Trim() {
+	s := "1234        \n"
+	fmt.Println(strconv.Atoi(strings.TrimSpace(s)))
 }
