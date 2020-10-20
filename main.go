@@ -81,7 +81,7 @@ func main() {
 	//StrToInt64AndReverse()
 	//StrToFloat32AndReverse() // 精度就6位小数
 	//StrToFloat64AndReverse()
-	Trim()
+	//Trim()
 
 	/* TestMutex */
 	//TestMutex()
@@ -97,4 +97,11 @@ func main() {
 
 	/* TestAsync */
 	//TestAsync()
+	TestPrimeFilter()
+
+	/* TestPprof */
+	//TestHttpPprof()
+
+	/* TestSubPub */
+	// TestPubSub()
 }
