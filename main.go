@@ -90,14 +90,15 @@ func main() {
 	//TestJson()
 
 	/* TestContext */
-	// DeadlockCtx(context.Background())
+	//DeadlockCtx(context.Background())
 
 	/* TestRate */
-	// TestRate()
+	//TestRate()
 
 	/* TestAsync */
 	//TestAsync()
-	TestPrimeFilter()
+	//TestPrimeFilter()
+	TestRandomNum()
 
 	/* TestPprof */
 	//TestHttpPprof()

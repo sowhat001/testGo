@@ -29,7 +29,7 @@ func TestPrimeFilter() {
 	ch := GenerateNatural()
 	for i := 0; i < 100; i++ {
 		prime := <-ch // 新出现的素数
-		fmt.Printf("%v: %v\n", i+1, prime)
+		fmt.Printf("%v: %v, %v\n", i+1, prime, ch)
 		ch = PrimeFilter(ch, prime) // 基于新素数构造的过滤器
 	}
 }
@@ -55,4 +55,20 @@ func PrimeFilter(in <-chan int, prime int) chan int {
 		}
 	}()
 	return out
+}
+
+func TestRandomNum() {
+	ch := make(chan int)
+	go func() {
+		for i := 0; i < 100; i++ {
+			select {
+			case ch <- 0:
+			case ch <- 1:
+			}
+		}
+	}()
+
+	for v := range ch {
+		fmt.Println(v)
+	}
 }
