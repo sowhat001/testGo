@@ -44,7 +44,7 @@ func GenerateNatural() chan int {
 	return ch
 }
 
-// 管道过滤器: 删除能被素数整除的数
+// PrimeFilter: 管道过滤器: 删除能被素数整除的数
 func PrimeFilter(in <-chan int, prime int) chan int {
 	out := make(chan int)
 	go func() {

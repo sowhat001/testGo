@@ -1,3 +1,4 @@
+// dig package
 package main
 
 import (

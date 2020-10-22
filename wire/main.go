@@ -1,3 +1,4 @@
+// wire package
 package main
 
 type Message struct {
