@@ -99,7 +99,7 @@ func main() {
 	/* TestAsync */
 	//TestAsync()
 	//TestPrimeFilter()
-	TestRandomNum()
+	//TestRandomNum()
 
 	/* TestPprof */
 	//TestHttpPprof()
