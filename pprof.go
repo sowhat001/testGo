@@ -10,7 +10,7 @@ import (
 	"github.com/sirupsen/logrus"
 )
 
-func TestHttpPprof() {
+func TestHttpPProf() {
 	http.HandleFunc("/test", handler)
 	err := http.ListenAndServe(":4396", nil)
 	if err != nil {

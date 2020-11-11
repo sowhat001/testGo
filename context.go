@@ -6,7 +6,8 @@ import (
 	"time"
 )
 
-func DeadlockCtx(ctx context.Context) {
+func TestDeadlockCtx() {
+	ctx := context.Background()
 	ctxWithTimeout, cancel := context.WithTimeout(ctx, time.Second*1)
 	defer cancel()
 

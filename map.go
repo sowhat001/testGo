@@ -7,27 +7,40 @@ import (
 	"sort"
 )
 
-func RetVarDefinedNil(new int) (aaa []int, match map[int]int) {
+// map 是不能清空的
+
+// map 要 make，slice 不用
+func TestMapAndSliceMakeOrNot() {
+	s1, m1 := retVarDefinedNil(2)
+	fmt.Println("Do not make: ", s1 == nil, " ", m1 == nil)
+	s2, m2 := retVarDefined(2)
+	fmt.Println("Make: ", s2, " ", m2)
+}
+
+func retVarDefinedNil(new int) (aaa []int, match map[int]int) {
 	_ = new
 	return
 }
 
-func RetVarDefined(new int) (aaa []int, match map[int]int) {
+func retVarDefined(new int) (aaa []int, match map[int]int) {
 	aaa = append(aaa, new)
 	match = make(map[int]int)
 	match[new] = new
 	return
 }
 
-func definedMapSpace(new int) {
-	m := make(map[string]int, new)
-	for i := 0; i < new*2; i++ {
+// map 会自动扩展容量
+func TestMapSpace() {
+	space := 3
+	m := make(map[string]int, space)
+	for i := 0; i < space*2; i++ {
 		m[fmt.Sprintf("%d", i)] = i
 	}
 	fmt.Println(m)
 }
 
-func MapJsonConvert() {
+// interface{} 当 key 的 map，无法序列化/反序列化
+func TestMapJsonConvert() {
 	m := make(map[string][]int)
 	m2 := make(map[interface{}]interface{})
 	m3 := make(map[interface{}]int)
@@ -41,10 +54,10 @@ func MapJsonConvert() {
 	fmt.Println(temp, "err: ", err)
 
 	err = json.Unmarshal([]byte(temp), &m2)
-	fmt.Println(m2, err) //报错
+	fmt.Println(m2, err) // 报错
 
 	err = json.Unmarshal([]byte(temp), &m3)
-	fmt.Println(m3, err) //报错
+	fmt.Println(m3, err) // 报错
 
 	err = json.Unmarshal([]byte(temp), &m4)
 	fmt.Println(m4, err)
@@ -60,9 +73,23 @@ func MapJsonConvert() {
 	b, err = json.Marshal(m4)
 	temp = string(b)
 	fmt.Println(temp, "err: ", err)
+
+	// map 中有结构体的时候，序列化会出错，结构体字段为空
+	oldM := make(map[int]A)
+	oldM[1] = A{int64(1)}
+	oldM[2] = A{int64(2)}
+	fmt.Printf("original m: %v\n", oldM)
+	res, err := json.Marshal(oldM)
+	fmt.Printf("m string value: %v, err: %v\n", string(res), err)
+	newM := make(map[int]A)
+	err = json.Unmarshal(res, &newM)
+	fmt.Printf("m struct value: %v, err %v\n", newM, err)
+	res, err = json.Marshal(nil)
+	fmt.Printf("assign nil, value: %v, err: %v\n", string(res), err)
 }
 
-func MapDelete() { //遍历删除是安全的
+// 遍历删除是安全的
+func TestMapDelete() {
 	x := map[int]int{}
 	for i := 0; i < 10000; i++ {
 		x[i] = i
@@ -84,7 +111,7 @@ func MapDelete() { //遍历删除是安全的
 	fmt.Println("删除所有的元素后,长度:", len(x))
 }
 
-func MapSort() {
+func TestMapSort() {
 	x := map[int]int{}
 	for i := 0; i < 5; i++ {
 		x[i] = i%3 + rand.Intn(2123)/45
@@ -110,6 +137,10 @@ func MapSort() {
 	}
 }
 
-func NilMap(m map[int64]int64) {
+func TestNilMap() {
+	var m map[int64]int64
+	// 编译不会错，输出 nil
 	print(m[2])
+	// 编译会错
+	// m[2] = 1
 }

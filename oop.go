@@ -27,7 +27,7 @@ func (b *Base) Bark() {
 }
 
 func (b *Base) Print() {
-	fmt.Println("Base print ", b.F, b.S)
+	fmt.Println("Base print2 ", b.F, b.S)
 }
 
 type Derived struct {
@@ -48,7 +48,7 @@ func (d *Derived) Bark() {
 }
 
 func (d *Derived) Print() {
-	fmt.Println("Derived print ", d.I, d.F, d.S)
+	fmt.Println("Derived print2 ", d.I, d.F, d.S)
 }
 
 func TestOOP1(in TestInterface) {
@@ -78,3 +78,20 @@ func TestOOP4(val interface{}) {
 		fmt.Println("unknown")
 	}
 }
+
+// bas := &Base{
+// F: 4.2,
+// S: "123",
+// }
+// der := &Derived{
+// I:    64,
+// Base: bas,
+// }
+// TestOOP1(bas)
+// TestOOP1(der)
+// TestOOP2(bas)
+// // TestOOP2(der) // type no match
+// // TestOOP3(bas) // type no match
+// TestOOP3(der)
+// TestOOP4(bas)
+// TestOOP4(der)

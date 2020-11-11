@@ -6,6 +6,18 @@ import (
 	"time"
 )
 
+func TestWaitGroup() {
+	var wg sync.WaitGroup
+	workerCount := 2
+	for i := 0; i < workerCount; i++ {
+		wg.Add(1) // 只能是1
+		go testWaitGroup(i, &wg)
+	}
+	time.Sleep(1 * time.Second)
+	wg.Wait()
+	fmt.Println("all done!")
+}
+
 func testWaitGroup(workerID int, wg *sync.WaitGroup) {
 	fmt.Printf("[%v] is running\n", workerID)
 	defer wg.Done()
