@@ -37,9 +37,12 @@ func main() {
 	// TestMapDelete()
 	// TestMapSort()
 	// TestNilMap()
+	TestConcurrentMap()
 
 	/* TestMutex */
-	// TestMutex()
+	// TestMutexInAnotherGoroutine()
+	// TestDirectUnlock()
+	// TestDoubleLock()
 
 	/* TestOOP */
 

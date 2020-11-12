@@ -5,6 +5,7 @@ import (
 	"fmt"
 	"math/rand"
 	"sort"
+	"time"
 )
 
 // map 是不能清空的
@@ -143,4 +144,27 @@ func TestNilMap() {
 	print(m[2])
 	// 编译会错
 	// m[2] = 1
+}
+
+// 并发读写 map 会直接报 fatal，不会 recover
+// 输出 fatal error: concurrent map writes
+func TestConcurrentMap() {
+	defer func() {
+		if r := recover(); r != nil {
+			fmt.Printf("%v, panic recover!", r) // 不输出
+		}
+	}()
+	m := make(map[int]int)
+	go func() {
+		for {
+			m[1] = 1
+		}
+
+	}()
+	go func() {
+		for {
+			m[2] = 2
+		}
+	}()
+	time.Sleep(1 * time.Second)
 }
