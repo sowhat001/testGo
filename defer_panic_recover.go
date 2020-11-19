@@ -105,3 +105,30 @@ func testRecursiveDeferAndPanic(i int) {
 	fmt.Println("Printing in testRecursiveDeferAndPanic", i)
 	testRecursiveDeferAndPanic(i + 1)
 }
+
+func shouldNotExit() {
+	for {
+		time.Sleep(1 * time.Second)
+		if time.Now().UnixNano()&0x03 == 0 {
+			panic("The server is stolen")
+		}
+	}
+}
+
+func neverExit(name string, f func()) {
+	defer func() {
+		if r := recover(); r != nil {
+			fmt.Printf("%v, %v\n", name, r)
+			go neverExit(name, f)
+		}
+	}()
+	f()
+}
+
+// 一直输出 The server is stolen
+func TestRestartGoRoutine() {
+	go neverExit("a", shouldNotExit)
+	go neverExit("b", shouldNotExit)
+	go neverExit("c", shouldNotExit)
+	select {}
+}

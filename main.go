@@ -19,6 +19,7 @@ func main() {
 	// TestDeferVariable()
 	// TestDeferFunc()
 	// TestPanicAndRecover()
+	TestRestartGoRoutine()
 
 	/* TestForBreak */
 	// TestMultiVariableLoop()
@@ -37,7 +38,7 @@ func main() {
 	// TestMapDelete()
 	// TestMapSort()
 	// TestNilMap()
-	TestConcurrentMap()
+	// TestConcurrentMap()
 
 	/* TestMutex */
 	// TestMutexInAnotherGoroutine()
