@@ -19,7 +19,7 @@ func main() {
 	// TestDeferVariable()
 	// TestDeferFunc()
 	// TestPanicAndRecover()
-	TestRestartGoRoutine()
+	// TestRestartGoRoutine()
 
 	/* TestForBreak */
 	// TestMultiVariableLoop()
@@ -62,12 +62,12 @@ func main() {
 	// TestSliceAppend()
 
 	/* TestString */
-	// TestStrToByteArrAndReverse()
-	// TestStrToIntAndReverse()
-	// TestStrToInt32AndReverse()
-	// TestStrToInt64AndReverse()
-	// TestStrToFloat32AndReverse()
-	// TestStrToFloat64AndReverse()
+	TestStrToByteArrAndReverse()
+	TestStrToIntAndReverse()
+	TestStrToInt32AndReverse()
+	TestStrToInt64AndReverse()
+	TestStrToFloat32AndReverse()
+	TestStrToFloat64AndReverse()
 	// TestStringTrim()
 	// TestStringModify()
 
