@@ -62,12 +62,12 @@ func main() {
 	// TestSliceAppend()
 
 	/* TestString */
-	TestStrToByteArrAndReverse()
-	TestStrToIntAndReverse()
-	TestStrToInt32AndReverse()
-	TestStrToInt64AndReverse()
-	TestStrToFloat32AndReverse()
-	TestStrToFloat64AndReverse()
+	// TestStrToByteArrAndReverse()
+	// TestStrToIntAndReverse()
+	// TestStrToInt32AndReverse()
+	// TestStrToInt64AndReverse()
+	// TestStrToFloat32AndReverse()
+	// TestStrToFloat64AndReverse()
 	// TestStringTrim()
 	// TestStringModify()
 
@@ -83,4 +83,5 @@ func main() {
 	// TestTimeFormat()
 	// TestTimeDuration()
 	// TestLoopTime()
+	TestDateValidator()
 }

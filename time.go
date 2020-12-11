@@ -30,3 +30,12 @@ func TestLoopTime() { //unixnano还是最好不当uuid
 		_ = 1
 	}
 }
+
+func TestDateValidator() {
+	var err error
+	date := "2019-02-29"
+	// match, err := regexp.MatchString("[0-9]{4}-[0-9]{2}-[0-9]{2}", date)
+	// fmt.Println(match, err)
+	_, err = time.Parse("2006-01-02", date)
+	fmt.Println(err)
+}
