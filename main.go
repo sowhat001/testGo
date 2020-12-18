@@ -83,5 +83,7 @@ func main() {
 	// TestTimeFormat()
 	// TestTimeDuration()
 	// TestLoopTime()
-	TestDateValidator()
+	// TestDateValidator()
+	// TestDateFormat()
+	TestRangeDates()
 }

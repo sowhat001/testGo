@@ -39,3 +39,31 @@ func TestDateValidator() {
 	_, err = time.Parse("2006-01-02", date)
 	fmt.Println(err)
 }
+
+func TestDateFormat() {
+	tm := time.Unix(1531293019, 0)
+	fmt.Println(tm.Format("2006-01-02")) // 2018-07-11
+}
+
+func TestRangeDates() {
+	var res []string
+	tm1 := time.Unix(1531293019, 0)
+	tm2 := time.Unix(time.Now().Unix(), 0)
+	tm1Date := tm1.Format("2006-01-02")
+	tm2Date := tm2.Format("2006-01-02")
+	fmt.Printf("tm1Date: %v, tm2Date: %v\n", tm1Date, tm2Date)
+	if tm1Date > tm2Date {
+		return
+	}
+	res = append(res, tm1Date)
+	for {
+		tm1 = tm1.AddDate(0, 0, 1)
+		tm1Date = tm1.Format("2006-01-02")
+		fmt.Printf("tm1Date: %v, tm2Date: %v\n", tm1Date, tm2Date)
+		if tm1Date > tm2Date {
+			break
+		}
+		res = append(res, tm1Date)
+	}
+	fmt.Println(res)
+}
