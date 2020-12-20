@@ -29,7 +29,7 @@ func main() {
 	// TestWaitGroup()
 
 	/* TestJson */
-	// TestJson()
+	TestParseString()
 
 	/* TestMap */
 	// TestMapAndSliceMakeOrNot()
@@ -85,5 +85,5 @@ func main() {
 	// TestLoopTime()
 	// TestDateValidator()
 	// TestDateFormat()
-	TestRangeDates()
+	// TestRangeDates()
 }
