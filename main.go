@@ -21,6 +21,10 @@ func main() {
 	// TestPanicAndRecover()
 	// TestRestartGoRoutine()
 
+	/* TestFloat */
+	// TestZero()
+	// TestDivide()
+
 	/* TestForBreak */
 	// TestMultiVariableLoop()
 	// TestRangeAddress()
@@ -29,7 +33,8 @@ func main() {
 	// TestWaitGroup()
 
 	/* TestJson */
-	TestParseString()
+	// TestParseString()
+	// TestPareMultiLayerStruct()
 
 	/* TestMap */
 	// TestMapAndSliceMakeOrNot()
@@ -84,6 +89,6 @@ func main() {
 	// TestTimeDuration()
 	// TestLoopTime()
 	// TestDateValidator()
-	// TestDateFormat()
 	// TestRangeDates()
+	TestUnixTime()
 }

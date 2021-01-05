@@ -2,13 +2,14 @@ package main
 
 import (
 	"fmt"
-	"reflect"
 	"time"
 )
 
 func TestTimeFormat() { // 必须是这个时间
-	t := time.Now().Format("2006-01-02 15:04:05")
-	fmt.Println(t, reflect.TypeOf(t))
+	t := time.Unix(1531293019, 12345678987654)   // sec + nano sec
+	fmt.Println(t.Format("2006-01-02 15:04:05")) // 2018-07-11 18:36:04
+	fmt.Println(t.Format("2006-01-02"))          // 2018-07-11
+	fmt.Println(t.Format("2006/01/02"))          // 2018/07/11
 }
 
 func TestTimeDuration() { // duration可以直接转化成int相加，除非叠加时间超过58年
@@ -40,15 +41,13 @@ func TestDateValidator() {
 	fmt.Println(err)
 }
 
-func TestDateFormat() {
-	tm := time.Unix(1531293019, 0)
-	fmt.Println(tm.Format("2006-01-02")) // 2018-07-11
-}
+//
 
 func TestRangeDates() {
 	var res []string
-	tm1 := time.Unix(1531293019, 0)
-	tm2 := time.Unix(time.Now().Unix(), 0)
+	tm1 := time.Unix(1608048000, 0)
+	tm2 := time.Unix(1608652799, 0)
+	fmt.Println(int(tm2.Sub(tm1).Hours() / 24)) // 计算出相差几天
 	tm1Date := tm1.Format("2006-01-02")
 	tm2Date := tm2.Format("2006-01-02")
 	fmt.Printf("tm1Date: %v, tm2Date: %v\n", tm1Date, tm2Date)
@@ -66,4 +65,14 @@ func TestRangeDates() {
 		res = append(res, tm1Date)
 	}
 	fmt.Println(res)
+}
+
+func TestUnixTime() {
+	now := time.Now()
+	t1 := time.Date(now.Year(), now.Month(), now.Day(), 0, 0, 0, 0, now.Location()).AddDate(0, 0, -5)
+	fmt.Println(t1, " ", t1.Unix())
+	t2 := t1.AddDate(0, 0, 1).Add(-1 * time.Second)
+	fmt.Println(t2, " ", t2.Unix())
+	fmt.Println(time.Unix(1608998400, 0))
+	fmt.Println(time.Unix(1609084799, 0))
 }
