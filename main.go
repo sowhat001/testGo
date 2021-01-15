@@ -90,5 +90,9 @@ func main() {
 	// TestLoopTime()
 	// TestDateValidator()
 	// TestRangeDates()
-	TestUnixTime()
+	// TestUnixTime()
+
+	/* TestValidator */
+	// ValidateStruct()
+	// ValidateVariable()
 }

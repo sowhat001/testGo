@@ -69,9 +69,10 @@ func TestRangeDates() {
 
 func TestUnixTime() {
 	now := time.Now()
-	t1 := time.Date(now.Year(), now.Month(), now.Day(), 0, 0, 0, 0, now.Location()).AddDate(0, 0, -5)
+	r := 23
+	t1 := time.Date(now.Year(), now.Month(), now.Day(), 0, 0, 0, 0, now.Location()).AddDate(0, 0, -r)
 	fmt.Println(t1, " ", t1.Unix())
-	t2 := t1.AddDate(0, 0, 1).Add(-1 * time.Second)
+	t2 := t1.AddDate(0, 0, r).Add(-1 * time.Second)
 	fmt.Println(t2, " ", t2.Unix())
 	fmt.Println(time.Unix(1608998400, 0))
 	fmt.Println(time.Unix(1609084799, 0))

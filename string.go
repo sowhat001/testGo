@@ -7,10 +7,10 @@ import (
 )
 
 func TestStrToByteArrAndReverse() {
-	str := "hello"
+	str := "阿萨德阿萨德阿萨德"
 	data := []byte(str) // string -> []byte
 	fmt.Printf("%T, %v\n", data, data)
-	str = string(data[:]) // []byte -> string
+	str = string(data) // []byte -> string
 	fmt.Printf("%T, %v\n", str, str)
 }
 
