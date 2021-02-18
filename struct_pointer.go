@@ -1,6 +1,9 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+	"reflect"
+)
 
 type A struct {
 	int64
@@ -15,6 +18,24 @@ type B struct {
 type C struct {
 	bool
 	*B
+}
+
+type D struct {
+	a int
+	b *string
+	c string
+}
+
+type E struct {
+	a *int
+	b string
+	c *string
+}
+
+type Scope struct {
+	Type int
+	IDs  []int64
+	Ext  []string
 }
 
 func TestStructWithAnonymousField() {
@@ -65,4 +86,41 @@ func TestCallMethodAndFuncWithPointerOrNot() {
 	fmt.Println(a)
 	(&a).add(2)
 	fmt.Println(a)
+}
+
+func TestFieldEmptyWithPointer() {
+	d := D{
+		a: 0,
+		c: "",
+	}
+	e := E{
+		a: &d.a,
+		b: *d.b,
+		c: &d.c,
+	}
+	fmt.Println(d)
+	fmt.Println(e)
+}
+
+func TestDeepEqual() {
+	var (
+		scopes1 = make(map[int]Scope)
+		scopes2 = make(map[int]Scope)
+		ext1    = make(map[string]interface{})
+		ext2    = make(map[string]interface{})
+	)
+	scopes1[1] = Scope{
+		Type: 1,
+		IDs:  []int64{2, 3, 4},
+		Ext:  []string{"2", "3", "4"},
+	}
+	scopes2[1] = Scope{
+		Type: 1,
+		IDs:  []int64{2, 3, 4},
+		Ext:  []string{"2", "3", "4"},
+	}
+	ext1["12312321"] = scopes1
+	ext2["12312321"] = scopes2
+	fmt.Println(reflect.DeepEqual(scopes1, scopes2))
+	fmt.Println(reflect.DeepEqual(ext1, ext2))
 }

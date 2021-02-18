@@ -17,7 +17,7 @@ func TestTimeDuration() { // duration可以直接转化成int相加，除非叠�
 	time.Sleep(time.Second * 5)
 	end := time.Since(t)
 	fmt.Println(int64(end))
-	fmt.Println(9223372036854775807)
+	fmt.Println(time.Duration(922337))
 }
 
 func TestLoopTime() { //unixnano还是最好不当uuid
@@ -71,9 +71,11 @@ func TestUnixTime() {
 	now := time.Now()
 	r := 23
 	t1 := time.Date(now.Year(), now.Month(), now.Day(), 0, 0, 0, 0, now.Location()).AddDate(0, 0, -r)
-	fmt.Println(t1, " ", t1.Unix())
+	fmt.Println(t1, " ", t1.UnixNano())
 	t2 := t1.AddDate(0, 0, r).Add(-1 * time.Second)
 	fmt.Println(t2, " ", t2.Unix())
 	fmt.Println(time.Unix(1608998400, 0))
 	fmt.Println(time.Unix(1609084799, 0))
+	fmt.Println(time.Now().Unix())
+	fmt.Println(time.Now().UnixNano())
 }

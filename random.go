@@ -3,6 +3,7 @@ package main
 import (
 	"fmt"
 	"math/rand"
+	"strconv"
 	"time"
 )
 
@@ -35,5 +36,13 @@ func TestRandomNumWithSelect() {
 
 	for v := range ch {
 		fmt.Println(v)
+	}
+}
+
+func TestRandomString() {
+	for i := 0; i < 300; i++ {
+		s1 := strconv.FormatInt(int64(i*1557/257-i+i-i+i*4682/452>>2), 10)
+		s2 := strconv.FormatInt(int64(i*19087/2157-i+i*i*2/167-i*4+i*4682/452>>2), 10)
+		fmt.Printf("\"%v[{@}][{=}]%v\",\n", s1, s2)
 	}
 }

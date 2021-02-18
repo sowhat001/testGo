@@ -58,7 +58,7 @@ func main() {
 	/* TestRandom */
 	// TestRandomInt()
 	// TestRandomNumWithSelect()
-
+	// TestRandomString()
 	/* TestRate */
 	// TestRate()
 
@@ -80,13 +80,15 @@ func main() {
 	// TestStructWithAnonymousField()
 	// TestModifyReturnValue()
 	// TestCallMethodAndFuncWithPointerOrNot()
+	// TestFieldEmptyWithPointer()
+	// TestDeepEqual()
 
 	/* TestSubPub */
 	// TestPubSub()
 
 	/* TestTime */
 	// TestTimeFormat()
-	// TestTimeDuration()
+	TestTimeDuration()
 	// TestLoopTime()
 	// TestDateValidator()
 	// TestRangeDates()
