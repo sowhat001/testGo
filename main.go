@@ -35,6 +35,7 @@ func main() {
 	/* TestJson */
 	// TestParseString()
 	// TestPareMultiLayerStruct()
+	TestParseEmpty()
 
 	/* TestMap */
 	// TestMapAndSliceMakeOrNot()
@@ -88,7 +89,7 @@ func main() {
 
 	/* TestTime */
 	// TestTimeFormat()
-	TestTimeDuration()
+	// TestTimeDuration()
 	// TestLoopTime()
 	// TestDateValidator()
 	// TestRangeDates()

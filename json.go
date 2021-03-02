@@ -55,3 +55,13 @@ func TestParseMultiLayerStruct() {
 	res, err := json.Marshal(t)
 	fmt.Println(string(res), err)
 }
+
+func TestParseEmpty() {
+	a := make(map[int]int)
+	v, err := json.Marshal(a)
+	if err != nil {
+		fmt.Println(err)
+	} else {
+		fmt.Print(string(v) == "{}") // true
+	}
+}
