@@ -36,6 +36,7 @@ func main() {
 	// TestParseString()
 	// TestPareMultiLayerStruct()
 	TestParseEmpty()
+	TestSize()
 
 	/* TestMap */
 	// TestMapAndSliceMakeOrNot()
