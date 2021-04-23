@@ -21,7 +21,7 @@ type BaseReq struct {
 }
 
 type AjaxTag struct {
-	AxPath   string `json:"ax_path"` // TODO 存在疑惑
+	AxPath   string `json:"ax_path"`
 	AxType   string `json:"ax_type"`
 	AxStatus string `json:"ax_status"`
 }

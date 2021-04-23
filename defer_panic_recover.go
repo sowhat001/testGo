@@ -132,3 +132,16 @@ func TestRestartGoRoutine() {
 	go neverExit("c", shouldNotExit)
 	select {}
 }
+
+func TestDeferAfterPanic() {
+	a := make([]int, 0)
+	a = nil
+	fmt.Println(a[0])
+
+	// b := make(map[string]int)
+	defer func() { // 没用
+		if r := recover(); r != nil {
+			fmt.Printf("recover, %v", r)
+		}
+	}()
+}

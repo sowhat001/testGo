@@ -73,4 +73,10 @@ func TestSliceAppend() {
 	a = append([]int{-3, -2, -1}, a...)                       // 在开头添加 1 个切片
 	fmt.Println(a)                                            // [-3 -2 -1 0 1 2 3 10 20 30 1 4 5 6 199 11 21 31 111 222 333]
 	// 在开头添加会导致整个 slice 被重新 copy 一遍，效率低
+
+	slist := make([]int, 0, 10)
+	s3 := append(slist, 1)
+	s4 := append(slist, 2)
+	fmt.Println(s3) //[2]
+	fmt.Println(s4) //[2]
 }

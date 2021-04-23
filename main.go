@@ -1,5 +1,10 @@
 package main
 
+import (
+	"encoding/json"
+	"fmt"
+)
+
 func main() {
 	/* TestAsync */
 	// TestAsync()
@@ -20,6 +25,7 @@ func main() {
 	// TestDeferFunc()
 	// TestPanicAndRecover()
 	// TestRestartGoRoutine()
+	// TestDeferAfterPanic()
 
 	/* TestFloat */
 	// TestZero()
@@ -35,8 +41,8 @@ func main() {
 	/* TestJson */
 	// TestParseString()
 	// TestPareMultiLayerStruct()
-	TestParseEmpty()
-	TestSize()
+	// TestParseEmpty()
+	// TestSize()
 
 	/* TestMap */
 	// TestMapAndSliceMakeOrNot()
@@ -66,7 +72,7 @@ func main() {
 
 	/* TestSlice */
 	// TestSliceCopy()
-	// TestSliceAppend()
+	TestSliceAppend()
 
 	/* TestString */
 	// TestStrToByteArrAndReverse()
@@ -99,4 +105,9 @@ func main() {
 	/* TestValidator */
 	// ValidateStruct()
 	// ValidateVariable()
+}
+
+func PrettyPrint(i interface{}) {
+	s, _ := json.MarshalIndent(i, "", "    ") // nolint:errcheck
+	fmt.Printf("%s\n", s)
 }
